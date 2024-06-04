@@ -1,0 +1,255 @@
+:root {
+    --main-dark: #012;
+    --second-dark: #023;
+    --main-light: #f9f7ff;
+    --second-light: #e9e7ff;
+    --orange: #fa1;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background-color: var(--second-dark);
+    color: var(--main-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+nav {
+    background-color: var(--main-dark);
+}
+
+orange {
+    color: var(--orange)
+}
+
+.nav-link {
+    color: var(--second-light);
+
+}
+
+.dropdown-menu {
+    color: var(--second-light);
+    background-color: var(--second-dark);
+}
+
+.nav-dropdown-custom:hover {
+    color: var(--orange);
+}
+
+
+#alert-success {
+    background-color: #045622;
+}
+
+#alert-danger {
+    background-color: #80091b;
+}
+
+#alert-success,
+#alert-danger {
+    color: var(--main-light);
+    border-color: black;
+}
+
+
+
+
+/*======================== footer  ===========================================*/
+
+
+.content {
+    flex: 1;
+    padding-bottom: 100px;
+    overflow-y: auto;
+}
+
+footer {
+    width: 100%;
+    margin-top: 6vw;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+@media (min-height: 100%) {
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+}
+
+/*======================== password validation  ==============================*/
+
+input {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid var(--main-light);
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+input[type=submit] {
+    background-color: #29cbb0;
+    color: var(--main-light);
+}
+
+label[for=pswd2],
+input[id=pswd2] {
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    -ms-transition: all 2s;
+    -o-transition: all 2s;
+    transition: all 2s;
+}
+
+.containerinput {
+    background-color: var(--main-light);
+    padding: 20px;
+}
+
+#message {
+    display: none;
+    background: var(--main-light);
+    color: var(--main-dark);
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+
+.invalid {
+    color: var(--orange);
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+}
+
+
+/*======================= Comment section ====================================*/
+
+
+.comments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.comment-section {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.comment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 0.6em;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.category {
+    font-style: italic;
+    color: gray;
+}
+
+.comment-title {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    margin-top: 5px;
+}
+
+.comments-column {
+    display: flex;
+    flex-direction: column;
+    grid-column: 3 / 4;
+}
+
+
+/*======================== Grid de juegos=====================================*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.grid-item {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 0.5vw;
+    border-radius: 0.6em;
+}
+
+.grid-link,
+.grid-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.grid-link .grid-item,
+.grid-link .grid-item div {
+    color: inherit;
+}
+
+
+/*======================== Media querys  =====================================*/
+
+
+@media (max-width: 992px) and (min-width: 755px) {
+    .responsive-image {
+        width: auto;
+        max-width: 90%; /* Adjust this value as needed */
+    }
+}
+
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+        background-color: var(--main-dark);
+    }
+
+    .dropdown-menu:hover {
+        background-color: red;
+    }
+}
