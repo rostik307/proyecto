@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{%block content%}
+<h1>Juegos</h1><br>
+<div class="s-3 row">
+    {% for juego in juegos %}
+    <a class=" p-3 col-sm-2 grid-link" href="juegos/{{juego.id}}">
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/' + juego.imagen) }}" alt="{{ juego.nombre }}" class="col-lg-12">
+            <div>{{ juego.nombre }}</div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{%endblock%}

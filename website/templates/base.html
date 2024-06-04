@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%} JuegaRapido {%endblock%}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style/main.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i>
+                    <orange>JuegaRapido</orange>
+                </i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    {%block navitems%}
+                    <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Principal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/juegos"><i class="fas fa-gamepad"></i> Juegos</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/puntuaciones"><i class="fas fa-trophy"></i>
+                            Récords</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/resenas"><i class="fas fa-star"></i> Reseñas</a>
+                    </li>
+                    {% if current_user.alias == NULL %}
+                    <li class="nav-item"><a class="nav-link" href="/signup"><i class="fas fa-user-plus"></i> Crear
+                            Usuario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Iniciar
+                            Sesion</a></li>
+                    {% elif current_user.alias != NULL%}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="/user"><i class="fas fa-user"></i>{{(' '+current_user.alias)}} </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a class="nav-dropdown-custom" href="/logout"><i
+                                        class="fas fa-sign-out-alt"></i> Cerrar sesion</li></a>
+                            <li class="dropdown-item"><a class="nav-dropdown-custom" href="/user"><i
+                                        class="fas fa-user"></i> Cuenta </a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="/signup">mknew</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">lgin</a></li>
+                    {% endif %}
+                    {%endblock%}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %} {% for category, message in messages %}
+    {% if category =='error' %}
+
+    <div id="alert-danger" class="alert alert-danger alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    {% else %}
+
+    <div id='alert-success' class="alert alert-success alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                {%block content%}
+                <h1>Bienvenido a <orange>JuegaRapido</orange>
+                </h1>
+                <p>Esta es una página que incorpora emuladores de juegos y tablas de clasificaciones para poder competir
+                </p>
+                {%endblock%}
+            </div>
+
+        </div>
+    </div>
+
+    {% block footer%}
+    <footer class="bg-dark text-center text-lg-start text-white">
+        <div class="container p-3">
+            <div class="row mt-4">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Documentacion de Programas usados</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i> Python</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i> HTML</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i> JS</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i> CSS</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i> SQLite</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Extensiones de python</h5>
+
+                    <ul class="list-unstyled">
+                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i> Flask</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i> Flask login</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-backspace fa-fw fa-sm me-2"></i> Jinja</a></li>
+                        <li><a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i> SQLalchemy</a></li>
+                        <li><a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i> Werkzeug Security</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Paginas consultadas</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#!" class="text-white">Tech with tim</a></li>
+                        <li><a href="#!" class="text-white">StackOverflow</a></li>
+                        <li><a href="#!" class="text-white">Github</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-briefcase fa-fw fa-sm me-2"></i>w3 Schools</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Tecnologias empleadas</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#!" class="text-white"><i class="fas fa-at fa-fw fa-sm me-2"></i> Github</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i> VS code</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-envelope fa-fw fa-sm me-2"></i>Join the newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Copyright:
+            <a class="text-white" href="https://eelslap.com/"> juegarapido.com</a>
+        </div>
+    </footer>
+    {%endblock%}
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

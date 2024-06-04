@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="p-3">
+                    <img class="responsive-image" src="{{ url_for('static', filename='img/' + juego.imagen) }}"
+                        alt="{{ juego.nombre }}">
+                    <h1>{{ juego.nombre }}</h1>
+                    <p>Fecha: {{ juego.fecha }}</p>
+                </div>
+                <div class="p-3">
+                    <h1>Últimos records</h1>
+                    <table class="table">
+                        {% for records, juegos, usuarios in records%}
+                        <div class="comment-section">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <span class="username">{{ juegos.nombre }}</span>
+                                    <span class="category"></span>
+                                </div>
+                                <div class="comment-title">{{ records.titulo }}</div>
+                                <div class="comment-text">{{ records.detalles }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3">
+                    <h1>Reseñas</h1>
+                    <table class="table">
+                        {% for resenna, juegos, usuarios in resennas%}
+                        <div class="comment-section">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <span class="username">{{ juegos.nombre }}</span>
+                                    <span class="category"></span>
+                                </div>
+                                <div class="comment-title">{{ resenna.titulo }}</div>
+                                <div class="comment-text">{{ resenna.detalles }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
