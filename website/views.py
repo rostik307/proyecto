@@ -39,3 +39,13 @@ def show_juego(juego_id):
     resennas = db.session.query(Resennas, Usuarios, Juegos).filter(juego_id == Juegos.id == Resennas.id_juego).filter(Resennas.id_usuario == Usuarios.id).filter(Resennas.id_juego == juego.id)
     records = db.session.query(Records, Usuarios, Juegos).filter(juego_id == Juegos.id == Records.idjuego).filter(Records.idusuario == Usuarios.id).filter(Records.idjuego == juego.id)
     return render_template('juego.html', juego=juego, resennas=resennas, records=records)
+
+@views.route('/record/<int:record_id>')
+def show_record(record_id):
+    from . import db
+    from .models import Juegos, Usuarios, Records
+
+    record = Juegos.query.get_or_404(record_id)
+    records = db.session.query(Records, Usuarios, Juegos).filter(Records.idusuario == Usuarios.id).filter(Records.id == record_id)
+
+    return render_template('record.html',record=record, records=records)

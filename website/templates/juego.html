@@ -15,14 +15,16 @@
                     <table class="table">
                         {% for records, juegos, usuarios in records%}
                         <div class="comment-section">
-                            <div class="comment">
-                                <div class="comment-header">
-                                    <span class="username">{{ juegos.nombre }}</span>
-                                    <span class="category"></span>
+                            <a href="/record/{{records.id}}">
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <span class="username">{{ juegos.nombre }}</span>
+                                        <span class="category"></span>
+                                    </div>
+                                    <div class="comment-title">{{ records.titulo }}</div>
+                                    <div class="comment-text">{{ records.detalles }}</div>
                                 </div>
-                                <div class="comment-title">{{ records.titulo }}</div>
-                                <div class="comment-text">{{ records.detalles }}</div>
-                            </div>
+                            </a>
                         </div>
                         {% endfor %}
                     </table>

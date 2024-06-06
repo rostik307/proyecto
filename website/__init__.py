@@ -200,7 +200,7 @@ def initialize_database():
     insert_reviews(date_time,'Review Test 9','esta review es una prueba, el usuario debe de ser "test" y debe de ser una review de dustforce','',2,1)
     insert_reviews(date_time,'Review Test 10','esta review es una prueba, el usuario debe de ser "test" y debe de ser una review de dustforce','',2,1)
 
-    insert_record('dustforce any% tutorial WR','current world record in the tutorial level',date_time,'youtu.be/abc12345678',0,1,15,100,1,1,5,'')
+    insert_record('dustforce any% tutorial WR','current world record in the tutorial level',date_time,'https://www.youtube.com/watch?v=iHoJfi4jXIQ',0,1,15,100,1,1,5,'')
     insert_record('dustforce any%','run for the game',date_time,'youtu.be/abc12345678',1,2,45,33,2,1,1,'')
     insert_record('minecraft any%','run for the game',date_time,'youtu.be/abc12345678',1,2,45,33,2,2,1,'')
     insert_record('minecraft any% WR','run for the game',date_time,'youtu.be/abc12345678',1,2,45,32,2,2,1,'')
