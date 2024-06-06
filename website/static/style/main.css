@@ -39,6 +39,15 @@ orange {
     color: var(--orange);
 }
 
+.boton-detalles {
+    background: rgb(0,34,51);
+    background: linear-gradient(0deg, rgba(0,34,51,1) 24%, rgba(92,84,115,1) 100%);
+}
+
+.boton-detalles:hover {
+    background: rgb(0,34,51);
+    background: linear-gradient(176deg, rgba(0,34,51,1) 24%, rgba(92,84,115,1) 100%);
+}
 
 #alert-success {
     background-color: #045622;
@@ -156,12 +165,13 @@ input[id=pswd2] {
 }
 
 .comment-section {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     font-family: Arial, sans-serif;
 }
 
 .comment {
     border: 1px solid #ddd;
+    background-color: var(--main-dark);
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 0.6em;
@@ -211,6 +221,12 @@ input[id=pswd2] {
     border: 1px solid #ccc;
     padding: 0.5vw;
     border-radius: 0.6em;
+}
+
+.grid-alter {
+    background-color: var(--main-light);
+    color: var(--main-dark);
+    border-color: var(--second-dark);
 }
 
 .grid-link,

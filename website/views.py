@@ -45,7 +45,7 @@ def show_record(record_id):
     from . import db
     from .models import Juegos, Usuarios, Records
 
-    record = Juegos.query.get_or_404(record_id)
+    record = Records.query.get_or_404(record_id)
     records = db.session.query(Records, Usuarios, Juegos).filter(Records.idusuario == Usuarios.id).filter(Records.id == record_id)
 
     return render_template('record.html',record=record, records=records)

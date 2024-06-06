@@ -1,28 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <div class="content">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="p-3">
-                    <img class="responsive-image" src="{{ url_for('static', filename='img/' + juego.imagen) }}"
+                <div class="p-3 text-center">
+                    <img class="responsive-image rounded" src="{{ url_for('static', filename='img/' + juego.imagen) }}"
                         alt="{{ juego.nombre }}">
-                    <h1>{{ juego.nombre }}</h1>
-                    <p>Fecha: {{ juego.fecha }}</p>
+                    <div>
+                        <h1 class="pt-4">{{ juego.nombre }}</h1>
+                        <p>Fecha: {{ juego.fecha }}</p>
+                    </div>
                 </div>
                 <div class="p-3">
-                    <h1>Últimos records</h1>
+                    <h1 class="text-center">Últimos records</h1>
                     <table class="table">
                         {% for records, juegos, usuarios in records%}
-                        <div class="comment-section">
-                            <a href="/record/{{records.id}}">
-                                <div class="comment">
+                        <div class="comment-section card">
+                            <a href="/record/{{records.id}}" class="grid-link card-content">
+                                <div class="comment  grid-item rounded ">
                                     <div class="comment-header">
                                         <span class="username">{{ juegos.nombre }}</span>
-                                        <span class="category"></span>
+                                        <div class="btn btn-outline-dark boton-detalles">Ver Detalles</div>
                                     </div>
                                     <div class="comment-title">{{ records.titulo }}</div>
                                     <div class="comment-text">{{ records.detalles }}</div>
+
                                 </div>
                             </a>
                         </div>
@@ -32,11 +36,11 @@
             </div>
             <div class="col-md-6">
                 <div class="p-3">
-                    <h1>Reseñas</h1>
+                    <h1 class="text-center">Reseñas</h1>
                     <table class="table">
                         {% for resenna, juegos, usuarios in resennas%}
                         <div class="comment-section">
-                            <div class="comment">
+                            <div class="comment rounded ">
                                 <div class="comment-header">
                                     <span class="username">{{ juegos.nombre }}</span>
                                     <span class="category"></span>
@@ -54,3 +58,38 @@
     </div>
 </div>
 {% endblock %}
+
+{%block scripts%}
+<script>
+    var articles = $('article > .item-wrapper'),
+        lightingRgb = '255,255,255';
+
+    articles.mousemove(function (e) {
+        var current = $(this),
+            x = current.width() - e.offsetX * 2,
+            y = current.height() - e.offsetY * 2,
+            rx = -x / 30,
+            ry = y / 24,
+            deg = Math.atan2(y, x) * (180 / Math.PI) + 45;
+        current.css({ "transform": "scale(1.05) rotateY(" + rx + "deg) rotateX(" + ry + "deg)" });
+        $('figure > .lighting', this).css('background', 'linear-gradient(' + deg + 'deg, rgba(' + lightingRgb + ',0.32) 0%, rgba(' + lightingRgb + ',0) 100%)');
+    });
+
+    articles.on({
+        'mouseenter': function () {
+            var current = $(this);
+            current.addClass('enter ease').removeClass("leave");
+            setTimeout(function () {
+                current.removeClass('ease');
+            }, 280);
+        },
+        'mouseleave': function () {
+            var current = $(this);
+            current.css({ "transform": "rotate(0)" });
+            current.removeClass('enter').addClass("leave");
+            $('figure > .lighting', this).removeAttr('style');
+        }
+    }
+    );
+</script>
+{%endblock%}

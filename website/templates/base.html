@@ -7,7 +7,10 @@
     <title>{%block title%} JuegaRapido {%endblock%}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
@@ -87,9 +90,11 @@
                 </p>
                 {%endblock%}
             </div>
-
         </div>
     </div>
+    
+    {%block outercontent%}
+    {%endblock%}
 
     {% block footer%}
     <footer class="bg-dark text-center text-lg-start text-white">
@@ -110,11 +115,16 @@
                     <h5 class="text-uppercase">Extensiones de python</h5>
 
                     <ul class="list-unstyled">
-                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i> Flask</a></li>
-                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i> Flask login</a></li>
-                        <li><a href="#!" class="text-white"><i class="fas fa-backspace fa-fw fa-sm me-2"></i> Jinja</a></li>
-                        <li><a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i> SQLalchemy</a></li>
-                        <li><a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i> Werkzeug Security</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>
+                                Flask</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i> Flask
+                                login</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-backspace fa-fw fa-sm me-2"></i> Jinja</a>
+                        </li>
+                        <li><a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i>
+                                SQLalchemy</a></li>
+                        <li><a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i> Werkzeug
+                                Security</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
@@ -123,15 +133,18 @@
                         <li><a href="#!" class="text-white">Tech with tim</a></li>
                         <li><a href="#!" class="text-white">StackOverflow</a></li>
                         <li><a href="#!" class="text-white">Github</a></li>
-                        <li><a href="#!" class="text-white"><i class="fas fa-briefcase fa-fw fa-sm me-2"></i>w3 Schools</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-briefcase fa-fw fa-sm me-2"></i>w3
+                                Schools</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Tecnologias empleadas</h5>
                     <ul class="list-unstyled">
                         <li><a href="#!" class="text-white"><i class="fas fa-at fa-fw fa-sm me-2"></i> Github</a></li>
-                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i> VS code</a></li>
-                        <li><a href="#!" class="text-white"><i class="fas fa-envelope fa-fw fa-sm me-2"></i>Join the newsletter</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i> VS
+                                code</a></li>
+                        <li><a href="#!" class="text-white"><i class="fas fa-envelope fa-fw fa-sm me-2"></i>Join the
+                                newsletter</a></li>
                     </ul>
                 </div>
             </div>
@@ -149,6 +162,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {%block scrits%}
+    {%endblock%}
 </body>
 
 </html>
