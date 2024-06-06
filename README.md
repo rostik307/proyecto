@@ -12,3 +12,14 @@ El proyecto consiste de una aplicacion web con diversas funcionalidades:
  -Insercion de datos recien mencionados
  
  -Interfaz intuitiva para interactuar con los datos con facilidad
+
+
+
+_________REQUISITOS_________
+
+Para que la aplicacion funcione necesitarás cumplir varios requisitos:
+
+-Tener instalado python, p.e. desde la tienda de extensiones de vscode
+
+-instalar las extensiones de python, con el siguiente comando:
+pip install flask flask-sqlalchemy flask-login
