@@ -1,5 +1,6 @@
 Este proyecto es para la entrega de fin de grado de 2º de desarrollo de aplicaciones web, por Rostyslav Konchenko
 
+
 El proyecto consiste de una aplicacion web con diversas funcionalidades:
 
  -Interaccion con base de datos para perpetuidad de datos sobre juegos y usuarios
