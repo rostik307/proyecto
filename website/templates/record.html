@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="row">
+    <div class="col-6"> <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/{{record.video}}?si=oMegFVAtEEitqjQa" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <div class="col-sm-1"></div>
+    <div class="col-5">
+        <h1>{{record.titulo}}</h1>
+        <p>{{record.detalles}}</p>
+        <p class="category">{{record.tiempohoras}}:{{record.tiempominutos}}:{{record.tiemposegundos}}:{{record.tiempoms}}</p>
+    </div>
 
-<h1>{{record.titulo}}</h1>
-<p>{{record.detalles}}</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{record.video}}?si=oMegFVAtEEitqjQa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+</div>
 {%endblock%}

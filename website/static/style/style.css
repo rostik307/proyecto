@@ -11,29 +11,35 @@ body {
   padding: 0px;
 }
 
-
 .card {
   background-color: var(--card-color);
   border-radius: 0.75em;
   cursor: pointer;
-  height: 150px;
+  height: 160px;
   margin: 10px;
 }
 
 .card-game {
   height: 250px;
 }
+
+.card-record-button {
+  width: 180px;
+  right: 15px;
+  bottom: 15px;
+  position: absolute;
+}
+
+.card-record-button:hover{
+  color: white;
+}
+
 .card:hover:before {
   opacity: 1;
 }
 
 .card:before {
-  background: linear-gradient(
-    45deg,
-    transparent 5%,
-    #fa1 50%,
-    transparent 99%
-  );
+  background: linear-gradient(45deg, transparent 5%, #fa1 50%, transparent 99%);
   border-radius: inherit;
   content: "";
   inset: 0px;
@@ -48,8 +54,19 @@ body {
   border-radius: inherit;
   display: grid;
   inset: 1px;
+  padding-bottom: 0 !important  ;
+  margin: 5px !important;
+  position: absolute;
+}
+
+.card-content-2 {
+  background-color: var(--card-color);
+  border-radius: inherit;
+  display: grid;
+  inset: 1px;
   padding: 10px;
   padding-bottom: 0;
+  margin: 5px !important;
   position: absolute;
 }
 
