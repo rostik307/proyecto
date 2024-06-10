@@ -1,5 +1,61 @@
-{% extends 'base.html'%}
-{%block outercontent%}
-{%endblock%}
-{%block scripts%}
-{%endblock%}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1>Bienvenido a <span style="color: orange;">JuegaRapido</span></h1>
+            <p>Explora, juega y compite con los mejores. ¡Descubre los juegos más emocionantes y establece nuevos
+                récords!</p>
+            <h2 class="p-2">Descubre los juegos más populares del momento:</h2>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for juego in juegos %}
+                    <a class=" p-3 col-sm-2 grid-link" href="juegos/{{juego.id}}">
+                        <div class="grid-item">
+                            <img src="{{ url_for('static', filename='img/' + juego.imagen) }}" alt="{{ juego.nombre }}"
+                                class="col-lg-12">
+                            <div>{{ juego.nombre }}</div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <section class="speedruns mt-5">
+                <h2>¿Qué son las Speedruns?</h2>
+                <p>Las speedruns son desafíos en los que jugadores intentan completar un videojuego en el menor
+                    tiempo posible. Esta práctica no solo requiere un profundo conocimiento del juego, sino
+                    también habilidades excepcionales, precisión y una gran dosis de paciencia. Los
+                    speedrunners, como se les conoce, analizan y explotan mecánicas del juego que a menudo pasan
+                    desapercibidas para la mayoría de los jugadores, optimizando cada movimiento para ganar
+                    segundos cruciales.</p>
+                <h2>El Valor de las Speedruns en la Sociedad Actual</h2>
+                <p>En la sociedad actual, las speedruns tienen un valor significativo por varias razones. En
+                    primer lugar, fomentan la innovación y el pensamiento crítico, ya que los jugadores deben
+                    encontrar formas creativas de superar desafíos. Además, las speedruns promueven una
+                    comunidad global donde la colaboración y el intercambio de conocimientos son fundamentales.
+                    A través de plataformas como Twitch y YouTube, las speedruns han construido una audiencia
+                    masiva, ofreciendo entretenimiento y un sentido de comunidad.</p>
+                <p>Las speedruns también destacan la importancia de la perseverancia y la dedicación. Los
+                    jugadores pasan innumerables horas perfeccionando sus habilidades, lo que demuestra que con
+                    esfuerzo y determinación, se pueden lograr resultados extraordinarios. Este espíritu de
+                    superación personal resuena con muchos aspectos de la vida diaria, inspirando a las personas
+                    a aplicar la misma ética de trabajo en sus propias metas y desafíos.</p>
+                <p>Finalmente, las speedruns han tenido un impacto filantrópico considerable. Eventos como Games
+                    Done Quick han recaudado millones de dólares para causas benéficas, utilizando el atractivo
+                    de las speedruns para hacer el bien en el mundo. Esta combinación de entretenimiento,
+                    comunidad y altruismo subraya el valor integral de las speedruns en la sociedad moderna.</p>
+            </section>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

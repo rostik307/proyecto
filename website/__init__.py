@@ -27,7 +27,8 @@ def initialize_database():
             db.session.add(newgame)
             db.session.commit()
         else:
-            print('no introducido el juego '+newgame.nombre+' porque ya estaba en la bbdd')
+            # print('no introducido el juego '+newgame.nombre+' porque ya estaba en la bbdd')
+            pass
     
     def insert_game_category(id,nombre,descripcion):
 
@@ -44,9 +45,11 @@ def initialize_database():
             db.session.add(newgamecat)
             db.session.commit()
         elif not cat_verifiedid:
-            print('no introducida la categoria de juegos '+newgamecat.nombre+' porque el id estaba repetido')
+            # print('no introducida la categoria de juegos '+newgamecat.nombre+' porque el id estaba repetido')
+            pass
         else: 
-            print('no introducida la categoria de juegos '+newgamecat.nombre+' porque ya estaba en la bbdd')
+            # print('no introducida la categoria de juegos '+newgamecat.nombre+' porque ya estaba en la bbdd')
+            pass
 
     def insert_record_category(id,nombre,descripcion):
         newreccat = CategoriasRecords(
@@ -62,9 +65,11 @@ def initialize_database():
             db.session.add(newreccat)
             db.session.commit()
         elif not cat_verifiedid:
-            print('no introducida la categoria de records '+newreccat.nombre+' porque el id estaba repetido')
+            # print('no introducida la categoria de records '+newreccat.nombre+' porque el id estaba repetido')
+            pass
         else: 
-            print('no introducida la categoria de records '+newreccat.nombre+' porque ya estaba en la bbdd')
+            # print('no introducida la categoria de records '+newreccat.nombre+' porque ya estaba en la bbdd')
+            pass
 
     def insert_User(alias, nombre, apellidos, telefono, contrasena, email, comentario, id_tipo):
         newuser = Usuarios(
@@ -85,11 +90,14 @@ def initialize_database():
             db.session.add(newuser)
             db.session.commit()
         elif not rev_verifiedname:
-            print('no introducido el usuario '+newuser.alias+' porque el alias estaba repetido')
+            # print('no introducido el usuario '+newuser.alias+' porque el alias estaba repetido')
+            pass
         elif not rev_verifiedmail:
-            print('no introducido el usuario con email '+newuser.email+' porque el correo estaba repetido')
+            # print('no introducido el usuario con email '+newuser.email+' porque el correo estaba repetido')
+            pass
         else: 
-            print('no introducido el usuario '+newuser.alias+' porque ya estaba en la bbdd')
+            # print('no introducido el usuario '+newuser.alias+' porque ya estaba en la bbdd')
+            pass
         
 
     def insert_reviews(fecha,titulo,detalles,comentario,id_usuario,id_juego):
@@ -109,7 +117,8 @@ def initialize_database():
             db.session.add(newrev)
             db.session.commit()
         else:
-            print('no introducida la reseña '+newrev.titulo+' porque está repetida')
+            # print('no introducida la reseña '+newrev.titulo+' porque está repetida')
+            pass
 
 
     def insert_record(titulo,detalles,fecha,video,tiempo_horas,tiempo_minutos,tiempo_segundos,tiempo_ms,id_usuario,id_juego,id_tipo,comentario):
@@ -133,7 +142,8 @@ def initialize_database():
         rec_verifiedcomment = Records.query.filter_by(detalles = detalles).first()
 
         if (rec_verifieduser and rec_verifiedtitle and rec_verifiedcomment):
-            print('no introducido el record '+newrec.titulo+' porque está repetido')
+            # print('no introducido el record '+newrec.titulo+' porque está repetido')
+            pass
         else:
             db.session.add(newrec)
             db.session.commit()
